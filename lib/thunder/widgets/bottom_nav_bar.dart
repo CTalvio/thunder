@@ -12,6 +12,7 @@ import 'package:thunder/feed/feed.dart';
 import 'package:thunder/inbox/bloc/inbox_bloc.dart';
 import 'package:thunder/search/bloc/search_bloc.dart';
 import 'package:thunder/thunder/bloc/thunder_bloc.dart';
+import 'package:thunder/thunder/widgets/quick_panel.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({super.key, required this.selectedPageIndex, required this.onPageChange});
@@ -99,10 +100,17 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           labelBehavior: state.showNavigationLabels ? NavigationDestinationLabelBehavior.alwaysShow : NavigationDestinationLabelBehavior.alwaysHide,
           elevation: 1,
           destinations: [
-            NavigationDestination(
-              icon: const Icon(Icons.dashboard_outlined),
-              selectedIcon: const Icon(Icons.dashboard_rounded),
-              label: l10n.feed,
+            GestureDetector(
+              onLongPress: () {
+                HapticFeedback.mediumImpact();
+                showQuickPanel(context);
+              },
+              child: NavigationDestination(
+                icon: const Icon(Icons.dashboard_outlined),
+                selectedIcon: const Icon(Icons.dashboard_rounded),
+                label: l10n.feed,
+                tooltip: '',
+              ),
             ),
             NavigationDestination(
               icon: const Icon(Icons.search_outlined),
