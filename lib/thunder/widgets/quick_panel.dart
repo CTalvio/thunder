@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:thunder/account/bloc/account_bloc.dart';
-import '../../community/widgets/community_drawer.dart';
 
 Future<void> showQuickPanel(
     BuildContext context, {
@@ -54,9 +53,9 @@ class _QuickPanelBody extends State<QuickPanelBody>{
               controller: controller,
               children: const [
                 /*SizedBox(height: 10),*/
-                UserDrawerItem(),
+                /*UserDrawerItem(),*/
                 /*PanelFeedItems(),*/
-                FavoriteCommunities(),
+                /*FavoriteCommunities(),*/
                 /*ModeratedCommunities(),
                 SubscribedCommunities(),*/
               ],
@@ -82,7 +81,7 @@ class QuickVisits extends StatelessWidget {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
 
-    return Row(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
